@@ -20,9 +20,7 @@ make_gradient<-function(string_lab=NULL, start_color=NULL, end_color=NULL)
   
   lab = string_lab
   
-  lab_no_space = str_remove_all(lab," ")
-  
-  pal_n<-pal(nchar(lab_no_space))
+  pal_n<-pal(nchar(lab))
   
   make_lab<-""
   
@@ -32,13 +30,13 @@ make_gradient<-function(string_lab=NULL, start_color=NULL, end_color=NULL)
     
     if (substr(lab,i,i) !=" ")
     {
-      make_title = paste0(make_title,"<span style='color:",pal_n[j],";'>",substr(lab,i,i),"</span>")
+      make_lab = paste0(make_lab,"<span style='color:",pal_n[j],";'>",substr(lab,i,i),"</span>")
     } else
     {
-      make_title<-paste0(make_title," ")
+      make_lab<-paste0(make_lab," ")
       j = i - 1
     }
     
   } 
-  return(make_title)
+  return(make_lab)
 }
